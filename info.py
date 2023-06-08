@@ -11,7 +11,7 @@ def is_enabled(value, default):
         return default
 
 # Bot information
-SESSION = environ.get('SESSION', 'Telegram')
+SESSION = environ.get('SESSION', 'TgMovieSearchRequest_3Bot')
 API_ID = int(environ.get('API_ID', '19491592'))
 API_HASH = environ.get('API_HASH', '01a4118f7aec3b2caece77a057fdd197')
 BOT_TOKEN = environ.get('BOT_TOKEN', "")
