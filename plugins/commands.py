@@ -54,7 +54,7 @@ async def start(client, message):
                             [
                                 InlineKeyboardButton(
                                     "Click Here To Refresh Token",
-                                    url=str(ad_url).replace("mdisk.pro", "Mdisk.Pro"),
+                                    url=str(ad_url),
                                 )
                             ]
                         ]
@@ -113,7 +113,7 @@ async def start(client, message):
                                     [
                                         InlineKeyboardButton(
                                             "Click Here To Refresh Token",
-                                            url=str(ad_url).replace("mdisk.pro", "Mdisk.Pro"),
+                                            url=str(ad_url),
                                         )
                                     ]
                                 ]
@@ -136,7 +136,7 @@ async def start(client, message):
                                 [
                                     InlineKeyboardButton(
                                         "Click Here To Refresh Token",
-                                        url=str(ad_url).replace("mdisk.pro", "Mdisk.Pro"),
+                                        url=str(ad_url),
                                     )
                                 ]
                             ]
