@@ -401,28 +401,37 @@ def get_readable_time(seconds):
     dt = datetime.fromtimestamp(int(seconds))
     return dt.strftime('%Y-%m-%d %H:%M:%S')
 
+# async def shorten_url(link):
+#     https = link.split(":")[0]
+#     if "http" == https:
+#         https = "https"
+#         link = link.replace("http", https)
+#     url = f'https://atglinks.com/api'
+#     params = {'api': URL_SHORTNER_WEBSITE_API,
+#               'url': link,
+#               }
+
+#     try:
+#         async with aiohttp.ClientSession() as session:
+#             async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
+#                 data = await response.json()
+#                 if data["status"] == "success":
+#                     return data['shortenedUrl']
+#                 else:
+#                     logger.error(f"Error: {data['message']}")
+#                    # return f'{link}'
+#                     return f'https://{URL_SHORTENR_WEBSITE}/st?api={URL_SHORTNER_WEBSITE_API}&url={link}'
+
+#     except Exception as e:
+#         logger.error(e)
+#        # return f'{link}'
+#         return f'{URL_SHORTENR_WEBSITE}/st?api={URL_SHORTNER_WEBSITE_API}&url={link}'
+
 async def shorten_url(link):
-    https = link.split(":")[0]
-    if "http" == https:
-        https = "https"
-        link = link.replace("http", https)
-    url = f'https://gplinks.in/api'
-    params = {'api': URL_SHORTNER_WEBSITE_API,
-              'url': link,
-              }
+    site_url = f"https://api.shareus.io/direct_link?api_key=8Ycn5AnXcSdgf0tA680HneHzuiS2&pages=3&link={link}&format=text"
+    l = str(requests.get(site_url).text).replace('</script>','<script>').replace('<script>','').replace('window.location.replace("','').replace('");','')
+    return str(l).strip()
 
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
-                data = await response.json()
-                if data["status"] == "success":
-                    return data['shortenedUrl']
-                else:
-                    logger.error(f"Error: {data['message']}")
-                   # return f'{link}'
-                    return f'https://{URL_SHORTENR_WEBSITE}/st?api={URL_SHORTNER_WEBSITE_API}&url={link}'
-
-    except Exception as e:
-        logger.error(e)
-       # return f'{link}'
-        return f'{URL_SHORTENR_WEBSITE}/st?api={URL_SHORTNER_WEBSITE_API}&url={link}'
+# def shorten_url(url):
+#     site_url = f"https://atglinks.com/api?api=3e5c0428cc433d9013050ae4b62cf448c34f045a&url={url}&format=text"
+#     return str(requests.get(site_url).text)
